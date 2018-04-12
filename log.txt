@@ -1,0 +1,1 @@
+{"notification":[{"user_id":"303","card_id":"70","message":"Congratulations! You\u2019ve successfully received a Hoop.","title":"s3","type":"stamp"}]}
