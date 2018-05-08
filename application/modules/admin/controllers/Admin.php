@@ -8,20 +8,23 @@
 
 /**
  * Description of Admin
- *e
+ * e
  * @author prashant
  */
-class Admin extends MY_Controller{
+class Admin extends MY_Controller {
+
     //put your code here
     public function __construct() {
         parent::__construct();
     }
-    
-    
+
     public function index() {
-        $this->load->view("admin/index");
+        $this->load->library('migration');
+
+                if ($this->migration->version(0) === FALSE)
+                {
+                        show_error($this->migration->error_string());
+                }
     }
-    
-    
-    
+
 }

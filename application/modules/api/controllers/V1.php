@@ -18,14 +18,11 @@ require APPPATH . '/libraries/REST_Controller.php';
  */
 class V1 extends REST_Controller {
 
-   
-    
-
     public function __construct() {
-		parent::__construct();
- 		$this->loadAllModel();
+        parent::__construct();
+        $this->loadAllModel();
         $this->load->library('multithreading');
-     	date_default_timezone_set('UTC');
+        date_default_timezone_set('UTC');
     }
 
     private function displayValidation($error) {
@@ -36,13 +33,22 @@ class V1 extends REST_Controller {
     }
 
     public function loadAllModel() {
-       
+        
     }
 
-   
-   
-   
+    public function getuser_post() {
+        $data= $this->post();
+        $this->form_validation->set_data($data);
 
-  
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $resp = array("status" => TRUE,"message"=> $this->displayValidation(validation_errors()), "result" => array());
+            $this->response($resp, REST_Controller::HTTP_BAD_REQUEST);
+        } else {
+            $resp = array("status" => TRUE,"message"=> "User list successfully get;", "result" =>$data);
+            $this->response($resp, REST_Controller::HTTP_OK);
+        }
+    }
 
 }
