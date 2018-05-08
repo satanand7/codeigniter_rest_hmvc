@@ -11,9 +11,17 @@
  *e
  * @author prashant
  */
-class Admin extends CI_Model{
+class Admin extends MY_Controller{
     //put your code here
     public function __construct() {
         parent::__construct();
     }
+    
+    
+    public function index() {
+        $this->load->view("admin/index");
+    }
+    
+    
+    
 }
