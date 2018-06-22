@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://111.118.246.35/radarapp';
+$config['base_url'] = 'http://localhost/radarapp';
 
 /*
 |--------------------------------------------------------------------------
